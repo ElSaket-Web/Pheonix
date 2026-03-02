@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHOENIX Control Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar glass-panel">
+        <div class="brand">
+          <div class="logo-mark" aria-hidden="true">🔥</div>
+          <div>
+            <p class="logo-title">PHOENIX</p>
+            <p class="logo-subtitle">Fire Extinguishing Mobile Robot</p>
+          </div>
+        </div>
+
+        <div class="status-cluster">
+          <span class="status-pill active">SYSTEM ACTIVE</span>
+          <span class="status-pill">AUTONOMOUS MODE</span>
+          <span class="status-pill muted" id="overrideBadge">MANUAL OVERRIDE OFF</span>
+        </div>
+
+        <div class="team-tag">TEAM AMBERS</div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="feeds-section">
+          <article class="camera-card glass-panel">
+            <header class="camera-header">
+              <h2>Surveillance Camera</h2>
+              <div class="camera-actions">
+                <span class="recording"><span class="dot"></span>REC LIVE</span>
+                <button class="icon-button" data-target="surveillanceFeed" aria-label="Toggle surveillance camera fullscreen">⛶</button>
+              </div>
+            </header>
+            <div class="camera-view surveillance" id="surveillanceFeed">
+              <div class="scanline"></div>
+              <p>Perimeter Scan</p>
+            </div>
+          </article>
+
+          <article class="camera-card glass-panel">
+            <header class="camera-header">
+              <h2>Robot Camera</h2>
+              <div class="camera-actions">
+                <span class="recording"><span class="dot"></span>REC LIVE</span>
+                <button class="icon-button" data-target="robotFeed" aria-label="Toggle robot camera fullscreen">⛶</button>
+              </div>
+            </header>
+            <div class="camera-view robot" id="robotFeed">
+              <div class="scanline"></div>
+              <p>Thermal + Optical Feed</p>
+            </div>
+          </article>
+        </section>
+
+        <aside class="control-sidebar glass-panel" id="controls">
+          <h2>Control Panel</h2>
+
+          <section class="status-grid">
+            <div class="metric-card">
+              <p>Temperature</p>
+              <strong>42°C</strong>
+            </div>
+            <div class="metric-card">
+              <p>Fire Detection</p>
+              <strong class="alert">Localized</strong>
+            </div>
+            <div class="metric-card">
+              <p>Latency</p>
+              <strong>38 ms</strong>
+            </div>
+            <div class="metric-card">
+              <p>Connection</p>
+              <strong class="ok">Secure</strong>
+            </div>
+          </section>
+
+          <section class="mode-toggle">
+            <div>
+              <h3>Mode</h3>
+              <p>Switch between autonomous operation and manual override.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="modeSwitch" />
+              <span class="slider"></span>
+            </label>
+          </section>
+
+          <section class="manual-controls" id="manualControls" hidden>
+            <h3>Manual Override Controls</h3>
+            <div class="dpad" role="group" aria-label="Directional controls">
+              <button aria-label="Move up">↑</button>
+              <button aria-label="Move left">←</button>
+              <button class="stop-mini" aria-label="Pause">■</button>
+              <button aria-label="Move right">→</button>
+              <button aria-label="Move down">↓</button>
+            </div>
+
+            <button class="emergency-stop">PUSH WATER</button>
+          </section>
+
+          <section class="logs-preview">
+            <div>
+              <h3>Mission Logs</h3>
+              <p>Recent events from PHOENIX operations.</p>
+            </div>
+            <ul>
+              <li><span>11:28:17</span> Autonomous patrol initialized.</li>
+              <li><span>11:29:03</span> Heat signature detected at Zone B2.</li>
+              <li><span>11:29:26</span> Water discharge cycle armed.</li>
+            </ul>
+            <a href="logs.html" class="logs-link">Open Full Logs</a>
+          </section>
+        </aside>
+      </main>
+
+      <section class="mobile-view glass-panel">
+        <header class="mobile-top">
+          <div class="brand compact">
+            <div class="logo-mark" aria-hidden="true">🔥</div>
+            <div>
+              <p class="logo-title">PHOENIX</p>
+            </div>
+          </div>
+          <span class="status-pill active">ACTIVE</span>
+        </header>
+
+        <nav class="mobile-tabs" aria-label="Mobile sections">
+          <button class="tab active" data-tab="surveillance">Surveillance</button>
+          <button class="tab" data-tab="robot">Robot</button>
+          <button class="tab" data-tab="mobileControls">Controls</button>
+          <button class="tab" data-tab="mobileLogs">Logs</button>
+        </nav>
+
+        <div class="mobile-panels">
+          <section class="mobile-panel active" id="surveillance">
+            <div class="camera-view surveillance mobile-cam"><p>Perimeter Scan</p></div>
+          </section>
+          <section class="mobile-panel" id="robot">
+            <div class="camera-view robot mobile-cam"><p>Thermal + Optical Feed</p></div>
+          </section>
+          <section class="mobile-panel" id="mobileControls">
+            <div class="joystick">
+              <div class="ring"></div>
+              <div class="knob"></div>
+            </div>
+            <button class="emergency-stop fixed">PUSH WATER</button>
+          </section>
+          <section class="mobile-panel" id="mobileLogs">
+            <ul class="mobile-logs">
+              <li><span>11:28:17</span> Autonomous patrol initialized.</li>
+              <li><span>11:29:03</span> Heat signature detected at Zone B2.</li>
+              <li><span>11:29:26</span> Water discharge cycle armed.</li>
+              <li><span>11:30:11</span> Operator confirmation received.</li>
+            </ul>
+            <a href="logs.html" class="logs-link">Open Full Logs</a>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
