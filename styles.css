@@ -1,6 +1,6 @@
 :root {
-  --bg-primary: #101123;
-  --glass: rgba(25, 26, 52, 0.78);
+  --bg-primary: #1b1b1b;
+  --glass: rgba(46, 46, 46, 0.78);
   --border: rgba(170, 70, 80, 0.28);
   --text-main: #f4f2ff;
   --text-dim: #d7b3b8;
@@ -18,7 +18,7 @@ body.light {
   --bg-primary: #eef2ff;
   --glass: rgba(255, 255, 255, 0.82);
   --border: rgba(143, 31, 47, 0.24);
-  --text-main: #1f2340;
+  --text-main: #1b1b1b;
   --text-dim: #8d646b;
   --brand-primary: #a32938;
   --brand-secondary: #d43a4a;
