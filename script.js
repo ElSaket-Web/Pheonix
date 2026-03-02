@@ -1,36 +1,6 @@
 const modeSwitch = document.getElementById("modeSwitch");
 const manualControls = document.getElementById("manualControls");
 const overrideBadge = document.getElementById("overrideBadge");
-const modeFeedback = document.getElementById("modeFeedback");
-const themeSwitch = document.getElementById("themeSwitch");
-
-const showFeedback = (message) => {
-  if (!modeFeedback) return;
-  modeFeedback.textContent = message;
-  modeFeedback.classList.add("show");
-  window.clearTimeout(showFeedback.timer);
-  showFeedback.timer = window.setTimeout(() => {
-    modeFeedback.classList.remove("show");
-  }, 1700);
-};
-
-const applyTheme = (theme) => {
-  document.body.classList.toggle("light", theme === "light");
-  if (themeSwitch) {
-    themeSwitch.checked = theme === "dark";
-  }
-};
-
-const storedTheme = window.localStorage.getItem("phoenixTheme") || "dark";
-applyTheme(storedTheme);
-
-if (themeSwitch) {
-  themeSwitch.addEventListener("change", () => {
-    const nextTheme = themeSwitch.checked ? "dark" : "light";
-    applyTheme(nextTheme);
-    window.localStorage.setItem("phoenixTheme", nextTheme);
-  });
-}
 
 if (modeSwitch && manualControls && overrideBadge) {
   modeSwitch.addEventListener("change", (event) => {
@@ -39,7 +9,6 @@ if (modeSwitch && manualControls && overrideBadge) {
     overrideBadge.textContent = isManual ? "MANUAL OVERRIDE ON" : "MANUAL OVERRIDE OFF";
     overrideBadge.classList.toggle("active", isManual);
     overrideBadge.classList.toggle("muted", !isManual);
-    showFeedback(isManual ? "Manual mode enabled: controls are live." : "Autonomous mode restored.");
   });
 }
 
@@ -72,9 +41,4 @@ for (const button of fullscreenButtons) {
 
     await target.requestFullscreen();
   });
-}
-
-if (window.location.hash === "#panelSettings") {
-  const settingsTab = document.querySelector('.main-tab[data-panel="panelSettings"]');
-  settingsTab?.click();
 }

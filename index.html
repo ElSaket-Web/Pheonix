@@ -16,12 +16,7 @@
     <div class="app-shell">
       <header class="topbar glass-panel">
         <div class="brand">
-          <div class="logo-mark">
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23111b2f'/%3E%3Cpath d='M52 12c6 15 20 17 20 36 0 13-10 23-23 23S26 62 26 49c0-9 4-15 10-22 0 8 5 13 12 15-2-12 1-20 4-30z' fill='%23ff8a3d'/%3E%3Ctext x='50' y='90' font-size='13' text-anchor='middle' fill='%23fff' font-family='Arial'%3ELOGO%3C/text%3E%3C/svg%3E"
-              alt="PHOENIX logo placeholder"
-            />
-          </div>
+          <div class="logo-mark" aria-hidden="true">🔥</div>
           <div>
             <p class="logo-title">PHOENIX</p>
             <p class="logo-subtitle">Fire Extinguishing Mobile Robot</p>
@@ -39,20 +34,11 @@
 
       <main class="dashboard-grid">
         <section class="main-panel glass-panel">
-          <div class="tabs-row">
-            <nav class="main-tabs" aria-label="Main navigation tabs">
-              <button class="main-tab active" data-panel="panelCameras">Cameras</button>
-              <button class="main-tab" data-panel="panelLogs">Logs</button>
-              <button class="main-tab" data-panel="panelSettings">Settings</button>
-            </nav>
-
-            <label class="theme-switch" for="themeSwitch">
-              <span>☀️</span>
-              <input id="themeSwitch" type="checkbox" aria-label="Toggle dark and light mode" />
-              <span class="theme-slider"></span>
-              <span>🌙</span>
-            </label>
-          </div>
+          <nav class="main-tabs" aria-label="Main navigation tabs">
+            <button class="main-tab active" data-panel="panelCameras">Cameras</button>
+            <button class="main-tab" data-panel="panelLogs">Logs</button>
+            <button class="main-tab" data-panel="panelSettings">Settings</button>
+          </nav>
 
           <section class="main-content-panel active" id="panelCameras">
             <div class="feeds-section">
@@ -104,10 +90,22 @@
             <div class="settings-board">
               <h2>System Settings</h2>
               <div class="settings-grid">
-                <label class="setting-item"><span>Auto Reconnect</span><input class="setting-toggle" type="checkbox" checked /></label>
-                <label class="setting-item"><span>Thermal Overlay</span><input class="setting-toggle" type="checkbox" checked /></label>
-                <label class="setting-item"><span>Alert Sound</span><input class="setting-toggle" type="checkbox" /></label>
-                <label class="setting-item"><span>Night Contrast Boost</span><input class="setting-toggle" type="checkbox" checked /></label>
+                <label class="setting-item">
+                  <span>Auto Reconnect</span>
+                  <input type="checkbox" checked />
+                </label>
+                <label class="setting-item">
+                  <span>Thermal Overlay</span>
+                  <input type="checkbox" checked />
+                </label>
+                <label class="setting-item">
+                  <span>Alert Sound</span>
+                  <input type="checkbox" />
+                </label>
+                <label class="setting-item">
+                  <span>Night Contrast Boost</span>
+                  <input type="checkbox" checked />
+                </label>
               </div>
             </div>
           </section>
@@ -117,10 +115,22 @@
           <h2>Control Panel</h2>
 
           <section class="status-grid">
-            <div class="metric-card"><p>Temperature</p><strong>42°C</strong></div>
-            <div class="metric-card"><p>Fire Detection</p><strong class="alert">Localized</strong></div>
-            <div class="metric-card"><p>Latency</p><strong>38 ms</strong></div>
-            <div class="metric-card"><p>Connection</p><strong class="ok">Secure</strong></div>
+            <div class="metric-card">
+              <p>Temperature</p>
+              <strong>42°C</strong>
+            </div>
+            <div class="metric-card">
+              <p>Fire Detection</p>
+              <strong class="alert">Localized</strong>
+            </div>
+            <div class="metric-card">
+              <p>Latency</p>
+              <strong>38 ms</strong>
+            </div>
+            <div class="metric-card">
+              <p>Connection</p>
+              <strong class="ok">Secure</strong>
+            </div>
           </section>
 
           <section class="mode-toggle">
@@ -128,15 +138,11 @@
               <h3>Mode</h3>
               <p>Switch between autonomous operation and manual override.</p>
             </div>
-            <label class="switch" for="modeSwitch">
-              <span class="switch-label">AUTO</span>
+            <label class="switch">
               <input type="checkbox" id="modeSwitch" />
               <span class="slider"></span>
-              <span class="switch-label">MANUAL</span>
             </label>
           </section>
-
-          <div class="mode-feedback" id="modeFeedback" role="status" aria-live="polite"></div>
 
           <section class="manual-controls" id="manualControls" hidden>
             <h3>Manual Override Controls</h3>
@@ -147,6 +153,7 @@
               <button aria-label="Move right">→</button>
               <button aria-label="Move down">↓</button>
             </div>
+
             <button class="emergency-stop">PUSH WATER</button>
           </section>
         </aside>
